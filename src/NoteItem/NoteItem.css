@@ -1,0 +1,23 @@
+.note-list__note-item {
+  margin: 20px;
+  border: 1px solid black;
+  list-style: none;
+  padding: 15px;
+}
+
+.note-item__button--delete {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid black;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  right: 35px;
+}

@@ -1,0 +1,7 @@
+.note-list {
+  display: grid;
+  width: 90%;
+  margin-right: auto;
+  margin-left: 10px;
+  position: relative;
+}

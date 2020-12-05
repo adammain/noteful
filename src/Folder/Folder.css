@@ -1,0 +1,26 @@
+.folder-list__folder {
+  list-style: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.folder-list__folder--button {
+  display: inline-block;
+  background-color: white;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 250px;
+}
+
+.folder-list__folder--button.active {
+  background-color: yellowgreen !important;
+}
