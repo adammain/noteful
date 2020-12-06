@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import NotefulContext from '../NotefulContext'
 import Folder from '../Folder/Folder'
 
@@ -39,12 +41,19 @@ class FolderList extends Component {
       <section className='sidebar'>
         {singleFolder && this.renderSingleFolder(singleFolder)}
         {!singleFolder && this.renderFolderList(folders)}
-        <button className='folder-list__button--Add'>
-          Add Folder
-        </button>
+        <Link to='/folder/add-folder'>
+          <button className='folder-list__button--Add'>
+            Add Folder
+          </button>
+        </Link>
       </section>
     )
   }
+}
+
+FolderList.propTypes = {
+  match: PropTypes.object,
+  history: PropTypes.object
 }
 
 export default FolderList

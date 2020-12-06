@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import NotefulContext from '../NotefulContext'
 
 import './NoteItem.css'
@@ -56,6 +57,12 @@ class NoteItem extends Component {
       </li>
     )
   }
+}
+
+NoteItem.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  modified: PropTypes.string
 }
 
 export default NoteItem

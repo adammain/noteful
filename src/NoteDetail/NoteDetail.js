@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import NotefulContext from '../NotefulContext'
 import './NoteDetail.css'
 
@@ -31,6 +32,8 @@ class NoteDetail extends Component {
   }
 }
 
-export default NoteDetail
+NoteDetail.propTypes = {
+  match: PropTypes.object
+}
 
-// notes={notes.find(note => note.id === routerProps.match.params.noteId)}
+export default NoteDetail

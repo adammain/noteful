@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import NoteItem from '../NoteItem/NoteItem'
 import NotefulContext from '../NotefulContext'
 
@@ -13,6 +15,11 @@ class NoteList extends Component {
     const noteForFolder = folderId ? notes.filter(note => note.folderId === folderId) : notes
     return (
       <div className='note-list'>
+        {folderId &&         
+          <Link to={`/add-note/${folderId}`}>
+            Add Note
+          </Link>
+        }
         <ul className='note-list__list' aria-live='polite'>
           {noteForFolder.map(note => 
             <NoteItem
@@ -26,14 +33,10 @@ class NoteList extends Component {
   }
 }
 
+NoteList.propTypes = {
+  match: PropTypes.object
+}
+
 export default NoteList
 
-
-  // const {folderId} = routerProps.match.params
-  // const notesForFolder = 
-  //   folderId 
-  //     ? notes.filter(note => note.folderId === folderId) 
-  //     : notes
-  // return <NoteList 
-  //   notes={notesForFolder} />
 

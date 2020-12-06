@@ -5,6 +5,10 @@ import FolderList from './FolderList/FolderList'
 import NoteList from './NoteList/NoteList'
 import NoteDetail from './NoteDetail/NoteDetail'
 import NotefulContext from './NotefulContext'
+import AddFolder from './AddFolder/AddFolder'
+import AddNote from './AddNote/AddNote'
+import FolderError from './Error/FolderError'
+import NoteError from './Error/NoteError'
 import config from './config';
 
 import './App.css'
@@ -33,6 +37,17 @@ class App extends Component {
       })
       .catch(err => console.log({err}))
   }
+  addFolder = folder => {
+    this.setState({
+      folders: [ ...this.state.folders, folder ]
+    })
+  }
+  addNote = note => {
+    console.log({note})
+    this.setState({
+      notes: [...this.state.notes, note ]
+    })
+  }
   deleteNote = noteId => {
     const notes = this.state.notes.filter(note => note.id !== noteId)
     this.setState({notes})
@@ -40,7 +55,7 @@ class App extends Component {
   renderFolderList() {
     return (
       <>
-        {['/', '/folder/:folderId'].map(path => (
+        {['/', '/add-note', '/add-note/:folderId', '/folder/add-folder', '/folder/:folderId'].map(path => (
             <Route 
               exact 
               path={path}
@@ -67,8 +82,18 @@ class App extends Component {
           />
         ))}
         <Route
+          exact
           path='/note/:noteId'
           component={NoteDetail}
+        />
+        <Route
+          exact
+          path='/folder/add-folder'
+          component={AddFolder}
+        />
+        <Route
+          path='/add-note/:folderId'
+          component={AddNote}
         />
       </>
     )
@@ -77,14 +102,20 @@ class App extends Component {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
+      addFolder: this.addFolder,
+      addNote: this.addNote,
       deleteNote: this.deleteNote
     }
     return (
       <div>
         <Header title={'Noteful'} />   
         <NotefulContext.Provider value={contextValue}>
-          <nav>{this.renderFolderList()}</nav>
-          <main className='main'>{this.renderMain()}</main>
+          <FolderError>
+            <nav>{this.renderFolderList()}</nav>
+          </FolderError>
+          <NoteError>
+            <main className='main'>{this.renderMain()}</main>
+          </NoteError>
         </NotefulContext.Provider>
       </div>
     )

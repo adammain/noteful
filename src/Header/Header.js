@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import './Header.css'
 
@@ -11,4 +12,12 @@ export default function Header(props) {
       </Link>
     </header>
   )
+}
+
+Header.defaultProps = {
+  title: ''
+}
+
+Header.propTypes = {
+  title: PropTypes.string
 }

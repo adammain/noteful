@@ -1,0 +1,5 @@
+.add-folder__section {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

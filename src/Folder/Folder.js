@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import './Folder.css'
 
@@ -17,4 +18,11 @@ export default function Folder(props) {
 
 Folder.defaultProps = {
   folder: {},
+}
+
+Folder.propTypes = {
+  Folder: PropTypes.objectOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }))
 }
