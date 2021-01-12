@@ -12,7 +12,7 @@ class NoteList extends Component {
   render() {
     const { notes } = this.context
     const { folderId } = this.props.match.params
-    const noteForFolder = folderId ? notes.filter(note => note.folderId === folderId) : notes
+    const notesForFolder = folderId ? notes.filter(note => note.folder_id === parseInt(folderId)) : notes
     return (
       <div className='note-list'>
         {folderId &&         
@@ -21,7 +21,7 @@ class NoteList extends Component {
           </Link>
         }
         <ul className='note-list__list' aria-live='polite'>
-          {noteForFolder.map(note => 
+          {notesForFolder.map(note => 
             <NoteItem
               key={note.id}
               {...note}

@@ -30,7 +30,7 @@ class AddNote extends Component {
       name: name.value,
       modified: Date.now(),
       content: content.value,
-      folderId: this.getFolderId(folder.value),
+      folder_id: this.getFolderId(folder.value),
     }
     this.setState({ error: null })
     fetch(`${config.API_ENDPOINT}/notes`, {

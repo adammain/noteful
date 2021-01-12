@@ -10,7 +10,7 @@ export default function Folder(props) {
         <NavLink 
           to={`/folder/${props.folder.id}`} 
           className={`folder-list__folder--button`}>
-            <h3>{props.folder.name}</h3>
+            <h2>{props.folder.name}</h2>
         </NavLink>
     </li>
   )
