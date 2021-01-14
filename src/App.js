@@ -9,7 +9,7 @@ import AddFolder from './AddFolder/AddFolder'
 import AddNote from './AddNote/AddNote'
 import FolderError from './Error/FolderError'
 import NoteError from './Error/NoteError'
-import config from './config';
+import config from './config'
 
 import './App.css'
 
@@ -43,7 +43,6 @@ class App extends Component {
     })
   }
   addNote = note => {
-    console.log({note})
     this.setState({
       notes: [...this.state.notes, note ]
     })

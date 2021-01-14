@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import NotefulContext from '../NotefulContext'
+import config from '../config'
 
 import './NoteItem.css'
 
@@ -13,8 +14,8 @@ class NoteItem extends Component {
   }
 
   handleDeleteNote = e => {
-    const noteId = this.props.id
-    fetch(`http://localhost:9090/notes/${noteId}`, {
+    let noteId = this.props.id
+    fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -24,7 +25,7 @@ class NoteItem extends Component {
         if (!res.ok) {
           throw new Error(res.status)
         } else {
-          return res.json()
+          return res
         }
       })
       .then(data => {
