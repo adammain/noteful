@@ -9,7 +9,7 @@ class NoteDetail extends Component {
   render() {
     const { notes } = this.context
     const { noteId } = this.props.match.params
-    const note = notes.find(note => note.id === parseInt(noteId))
+    const note = notes.find(note => note.id === noteId)
     let { content, modified, name } = note
     const options = { 
       day: 'numeric', 

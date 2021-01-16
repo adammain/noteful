@@ -22,7 +22,7 @@ class FolderError extends Component {
 }
 
 FolderError.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }
 
 export default FolderError

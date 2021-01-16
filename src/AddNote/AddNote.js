@@ -28,7 +28,7 @@ class AddNote extends Component {
     const note = {
       id: uuid,
       name: name.value,
-      modified: Date.now(),
+      modified: new Date(),
       content: content.value,
       folder_id: this.getFolderId(folder.value),
     }

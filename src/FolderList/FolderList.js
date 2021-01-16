@@ -34,7 +34,7 @@ class FolderList extends Component {
     let singleFolder
     if (this.props.match.params) {
       const { noteId } = this.props.match.params
-      const note = noteId ? notes.find(note => note.id === parseInt(noteId)) : {}
+      const note = noteId ? notes.find(note => note.id === noteId) : {}
       singleFolder = folders.find(folder => folder.id === note.folder_id)
     }
     return (

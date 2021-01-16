@@ -11,8 +11,11 @@ class NoteList extends Component {
 
   render() {
     const { notes } = this.context
+    console.log({notes})
     const { folderId } = this.props.match.params
-    const notesForFolder = folderId ? notes.filter(note => note.folder_id === parseInt(folderId)) : notes
+    console.log({folderId})
+    const notesForFolder = folderId ? notes.filter(note => note.folderId === folderId) : notes
+    console.log({notesForFolder})
     return (
       <div className='note-list'>
         {folderId &&         

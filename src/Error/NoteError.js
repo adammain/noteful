@@ -22,7 +22,7 @@ class NoteError extends Component {
 }
 
 NoteError.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }
 
 
